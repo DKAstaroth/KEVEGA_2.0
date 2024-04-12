@@ -8,7 +8,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>Registro</title>
+    <title>Contacto</title>
     <!-- Boxicons CSS -->
     <link
       href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
@@ -27,7 +27,7 @@
 
     <nav class="nav">
       <i class="uil uil-bars navOpenBtn"></i>
-      <a href="#" class="logo">KEVEGA</a>
+      <a href="index.html" class="logo">KEVEGA</a>
 
       <ul class="nav-links">
         <i class="uil uil-times navCloseBtn"></i>
@@ -46,26 +46,33 @@
     </nav>
 
 
-	<div class="container">
-		<h1 class="label">Registro</h1>
-		<form class="login_form" action="home.html" method="post" name="form" onsubmit="return validated()">
-			<div class="font">Email</div>
-			<input autocomplete="off" type="text" name="email">
-			<div id="email_error">escriba su email</div>
-			<div class="font font2">Constraseña</div>
-			<input type="password" name="password">
-			<div id="pass_error">cree su contraseña</div>
-            <div id="pass_error">repita su contraseña</div>
-      <br>
-      <br>
-      
-			<a href="login.html" class="boton">registrarse</a>
-		</form>
-	</div>	
-
-
-
-
+    <div class="containercontact">  
+        <form id="contact" action="" method="post">
+          <h3>Crear cuenta</h3>
+          <br>
+          <fieldset>
+            <input placeholder="Nombre" type="text" tabindex="1" required autofocus>
+          </fieldset>
+          <fieldset>
+            <input placeholder="Correo Electronico" type="email" tabindex="2" required>
+          </fieldset>
+          <fieldset>
+            <input placeholder="Confirmar correo electronico" type="email" tabindex="4" required>
+          </fieldset>
+          <fieldset>
+            <input placeholder="Cree una contraseña" type="password" tabindex="2" required>
+          </fieldset>
+          <fieldset>
+            <input placeholder="Confirme contraseña" type="password" tabindex="2" required>
+          </fieldset>
+          <fieldset>
+            <input placeholder="Numero de telefono (opcionall)" type="tel" tabindex="3" required>
+          </fieldset>
+          <fieldset>
+            <button name="submit" type="submit" id="contact-submit" data-submit="...Enviando">Iniciar</button>
+          </fieldset>
+        </form>
+      </div>
 
 <!--::::Pie de Pagina::::::-->
     <footer class="pie-pagina">

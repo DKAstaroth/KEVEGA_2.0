@@ -8,7 +8,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>Iniciar sesion</title>
+    <title>Contacto</title>
     <!-- Boxicons CSS -->
     <link
       href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
@@ -27,8 +27,7 @@
 
     <nav class="nav">
       <i class="uil uil-bars navOpenBtn"></i>
-      <a href="#" class="logo">KEVEGA</a>
-
+      <a href="index.html" class="logo">KEVEGA</a>
 
       <ul class="nav-links">
         <i class="uil uil-times navCloseBtn"></i>
@@ -47,26 +46,21 @@
     </nav>
 
 
-	<div class="container">
-		<h1 class="label">Iniciar</h1>
-		<form class="login_form" action="home.html" method="post" name="form" onsubmit="return validated()">
-			<div class="font">Email</div>
-			<input autocomplete="off" type="text" name="email">
-			<div id="email_error">Escriba su email</div>
-			<div class="font font2">Constraseña</div>
-			<input type="password" name="password">
-			<div id="pass_error">Escriba su contraseña</div>
-
-      <br>
-      <br>
-      
-			<a href="index.html" class="boton"> Ir a index</a>
-		</form>
-	</div>	
-
-
-
-
+    <div class="containercontact">  
+        <form id="contact" action="" method="post">
+          <h3>!Bienvenido¡</h3>
+          <h4>Ingrese sus datos para iniciar sesion</h4>
+          <fieldset>
+            <input placeholder="Correo Electronico" type="email" tabindex="2" required>
+          </fieldset>
+          <fieldset>
+            <input placeholder="Ingrese contraseña" type="password" tabindex="2" required>
+          </fieldset>
+          <fieldset>
+            <button name="submit" type="submit" id="contact-submit" data-submit="...Enviando">Iniciar</button>
+          </fieldset>
+        </form>
+      </div>
 
 <!--::::Pie de Pagina::::::-->
     <footer class="pie-pagina">
