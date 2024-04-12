@@ -428,7 +428,8 @@ body {
 #contact input[type="text"],
 #contact input[type="email"],
 #contact input[type="tel"],
-#contact input[type="url"],
+#contact input[type="url"]
+#contact input[type="password"],
 #contact textarea,
 #contact button[type="submit"] {
   font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
@@ -467,6 +468,7 @@ fieldset {
 #contact input[type="email"],
 #contact input[type="tel"],
 #contact input[type="url"],
+#contact input[type="password"],
 #contact textarea {
   width: 100%;
   border: 1px solid #ccc;
@@ -479,6 +481,7 @@ fieldset {
 #contact input[type="email"]:hover,
 #contact input[type="tel"]:hover,
 #contact input[type="url"]:hover,
+#contact input[type="password"]:hover,
 #contact textarea:hover {
   -webkit-transition: border-color 0.3s ease-in-out;
   -moz-transition: border-color 0.3s ease-in-out;
