@@ -350,3 +350,5 @@ navOpenBtn.addEventListener("click", () => {
 navCloseBtn.addEventListener("click", () => {
   nav.classList.remove("openNav");
 });
+
+

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista de Administrador</title>
+    <link rel="stylesheet" href="css/styleadmin.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h3>Vista Admin usuarios</h3>
+        </div>
+        <ul class="nav-links">
+            <li><a href="usuarios.html">Usuarios</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="index.html">Salir</a></li>
+        </ul>
+    </nav>
+
+    </main>
+    </head>
+    <body>
+    
+    <div class="container">
+        <div class="form-group">
+            <label for="username">Nombre de Usuario:</label>
+            <input type="text" id="username" required>
+        </div>
+        <div class="form-group">
+            <button type="button" id="add-user-btn">Agregar Usuario</button>
+        </div>
+        <ul id="user-list"></ul>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.getElementById('add-user-btn');
+            const userList = document.getElementById('user-list');
+    
+            form.addEventListener('click', function() {
+                const usernameInput = document.getElementById('username');
+                const username = usernameInput.value;
+    
+                if (username.trim() === '') {
+                    alert('Por favor, introduce un nombre de usuario válido.');
+                    return;
+                }
+    
+                const li = document.createElement('li');
+                li.className = 'user-item';
+                li.innerHTML = `
+                    <span>${username}</span>
+                    <button class="delete-btn">Eliminar</button>
+                `;
+    
+                const deleteBtn = li.querySelector('.delete-btn');
+                deleteBtn.addEventListener('click', function() {
+                    li.remove();
+                });
+    
+                userList.appendChild(li);
+    
+                usernameInput.value = '';
+            });
+        });
+    </script>bh
+</body>
+</html>
