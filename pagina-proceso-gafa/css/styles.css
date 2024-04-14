@@ -634,14 +634,6 @@ fieldset {
 
 
 
-
-
-
-
-
-
-
-
 .boton {
   
   display: inline-block;
@@ -651,4 +643,36 @@ fieldset {
   text-decoration: none; /* Eliminar subrayado de enlace */
   border-radius: 5px; /* Bordes redondeados */
   transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+}
+
+
+
+
+
+
+
+
+
+
+
+/* boton de contacto con a href*/
+
+
+.boton-verde {
+  display: inline-block;
+  background-color: #4CAF50; /* Color verde */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.boton-verde:hover {
+  background-color: #45a049; /* Cambia el color al pasar el ratón */
 }
