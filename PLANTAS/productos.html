@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vista de Administrador</title>
-    <link rel="stylesheet" href="css/styleadmin.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
 </head>
 <body>
+<header>
     <nav class="sidebar">
         <div class="sidebar-header">
             <h3>Vista Admin usuarios</h3>
@@ -24,46 +25,71 @@
     
     <div class="container">
         <div class="form-group">
-            <label for="username">Nombre de Producto:</label>
-            <input type="text" id="username" required>
+            <label for="username">Id de producto:</label>
+            <input type="text" id="username" class="input-field" required>
         </div>
         <div class="form-group">
-            <button type="button" id="add-user-btn">Agregar Producto</button>
+            <label for="email">Nombre de producto:</label>
+            <input type="email" id="email" class="input-field" required>
+        </div>
+        <div class="form-group">
+            <button type="button" id="add-user-btn">Agregar Usuario</button>
         </div>
         <ul id="user-list"></ul>
     </div>
-    
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const form = document.getElementById('add-user-btn');
             const userList = document.getElementById('user-list');
-    
+
             form.addEventListener('click', function() {
                 const usernameInput = document.getElementById('username');
+                const emailInput = document.getElementById('email');
                 const username = usernameInput.value;
-    
-                if (username.trim() === '') {
-                    alert('Por favor, introduce un nombre de usuario válido.');
+                const email = emailInput.value;
+
+                if (username.trim() === '' || email.trim() === '') {
+                    alert('Por favor, introduce un nombre y un id  válidos.');
                     return;
                 }
-    
+
                 const li = document.createElement('li');
                 li.className = 'user-item';
                 li.innerHTML = `
-                    <span>${username}</span>
+                    <span class="username">Nombre: ${username}</span>
+                    <span class="email">ID: ${email}</span>
+                    <button class="edit-btn">Editar</button>
                     <button class="delete-btn">Eliminar</button>
                 `;
-    
+
                 const deleteBtn = li.querySelector('.delete-btn');
                 deleteBtn.addEventListener('click', function() {
                     li.remove();
                 });
-    
+
+                const editBtn = li.querySelector('.edit-btn');
+                editBtn.addEventListener('click', function() {
+                    const usernameSpan = li.querySelector('.username');
+                    const emailSpan = li.querySelector('.email');
+
+                    const newUsername = prompt('Introduce un nuevo Nombre:', usernameSpan.textContent.split(':')[1].trim());
+                    const newEmail = prompt('Introduce un ID:', emailSpan.textContent.split(':')[1].trim());
+
+                    if (newUsername && newEmail) {
+                        usernameSpan.textContent = `Nombre: ${newUsername}`;
+                        emailSpan.textContent = `ID: ${newEmail}`;
+                    }
+                });
+
                 userList.appendChild(li);
-    
+
+                // Limpiar campos de entrada
                 usernameInput.value = '';
+                emailInput.value = '';
             });
         });
     </script>
+    </header>
 </body>
 </html>
