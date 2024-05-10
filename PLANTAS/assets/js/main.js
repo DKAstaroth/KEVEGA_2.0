@@ -224,7 +224,7 @@ function mostrarTienda() {
     }
 }
 
-// Agregar un evento 'DOMContentLoaded' para llamar a mostrarTienda
+//* Agregar un evento 'DOMContentLoaded' para llamar a mostrarTienda
 document.addEventListener('DOMContentLoaded', function() {
     mostrarTienda();
 });
@@ -343,9 +343,8 @@ function mostrarCarrito() {
     const porComprar = document.querySelector("#comprar");
     if (porComprar) {
         porComprar.addEventListener("click", (evento) => {
-            carritoCompra.metodos.comprar();
-            mostrarTienda();
-            mostrarCarrito();
+            // Redirige al usuario a la página deseada
+            window.location.href = "pago.html";
         });
     }
 }
@@ -417,7 +416,6 @@ navCloseBtn.addEventListener("click", () => {
 
 
     
-
 
 
 
