@@ -24,6 +24,7 @@ body {
 }
 
 .sidebar-header {
+    
     padding: 20px;
     text-align: center;
     border-bottom: 1px solid #555;
@@ -75,7 +76,7 @@ header {
 }
 
 /* Media query para hacer la barra lateral responsiva */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1060px) {
     .sidebar {
         width: 100%;
         position: absolute;
@@ -134,7 +135,7 @@ body {
     border-radius: 5px;
 }
 .form-group button {
-    background-color: #007bff;
+    background-color: #27ae60;
     color: #fff;
     border: none;
     padding: 8px 15px;
@@ -161,7 +162,7 @@ body {
 }
 
 .edit-btn {
-    background-color: #007bff;
+    background-color: #27ae60;
     color: white;
     border: none;
     padding: 5px 10px;
@@ -186,3 +187,67 @@ body {
         width: 100%;
     }
 }
+
+
+
+
+/*End Footer*/
+form{
+    text-align: center;
+}
+.tablita {
+    display: block; /* Cambia de inline-block a block */
+    margin: 0 auto; /* Centra la tabla horizontalmente */
+    width: 80%; /* Puedes ajustar el ancho según tus necesidades */
+}
+/*Tablaaaaaa Estilos*/
+.tabla{
+border-collapse: collapse; /*Esta propiedad hace que parezca mas una tabla*/
+font-family: 'Quicksand', sans-serif;
+}
+table tr th{
+    border: 1px solid #D5D9D9;
+    width: 100px;
+    height: 25px;
+    color: white;
+    background-color: #27ae60;
+}
+
+/* Para el estilo de las nuevas celdas */
+td {
+    border: 1px solid #D5D9D9;
+    width: 100px;
+    height: 25px;
+}
+.caja{
+    display: block;
+}
+.caja label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+  }
+  .caja input[type="text"] {
+    width: calc(100% - 10px);
+    margin: 5px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+
+.submit{
+    width: 8em;
+    height: 2em;
+    font-family: 'Quicksand', sans-serif;
+    color: white;
+    background-color: #27ae60;
+    border: 2px solid white;
+}
+
+.caja input[type="text"] {
+    width: calc(100% - 110px); /* Ancho dinámico para los campos de entrada */
+    margin: 5px; /* Ajusta los márgenes según sea necesario */
+    padding: 5px; /* Ajusta el relleno según sea necesario */
+  }
