@@ -189,7 +189,7 @@ function mostrarTienda() {
                   ${item.titulo}
               </div>
               <div class="precio">
-                  ${numeroMoneda(item.precio)} CLP
+                  ${numeroMoneda(item.precio)} 
               </div>
               <div class="cantidad">
                   ${item.cantidad} Unidades
@@ -353,11 +353,20 @@ function mostrarCarrito() {
 //* con la objeto global Intl.NumberFormat() formateo el numero a moneda
 //* https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Intl
 function numeroMoneda(numero) {
-    return new Intl.NumberFormat("es-US", {
+    const formattedPrice = new Intl.NumberFormat("es-US", {
         maximumSignificantDigits: 2, //* 2 decimales
         style: "currency",
         currency: "CLP",
     }).format(numero);
+
+    // Verificar si "CLP" ya está presente al final del texto
+    if (formattedPrice.endsWith("CLP")) {
+        return formattedPrice;
+    } else {
+        // Eliminar cualquier "CLP" presente al inicio y luego agregarlo al final
+        const priceWithoutCLP = formattedPrice.replace(/^CLP\s*/, ''); // Elimina "CLP" al inicio
+        return priceWithoutCLP + " CLP"; // Agrega "CLP" al final
+    }
 }
 
 

@@ -79,7 +79,7 @@ header {
 @media screen and (max-width: 1060px) {
     .sidebar {
         width: 100%;
-        position: absolute;
+        
         height: auto;
         
     }
@@ -87,6 +87,8 @@ header {
     .content {
         margin-left: 0;
     }
+
+
 }
 
 
@@ -194,6 +196,9 @@ body {
 /*End Footer*/
 form{
     text-align: center;
+    float: right; /* Para colocar el formulario a la derecha */
+    margin-top: 300px; /* Espacio entre el formulario y los elementos de la barra de navegación */
+    margin-right: 20px; /* Espacio entre el formulario y el borde derecho de la ventana del navegador */
 }
 .tablita {
     display: block; /* Cambia de inline-block a block */
@@ -250,4 +255,17 @@ td {
     width: calc(100% - 110px); /* Ancho dinámico para los campos de entrada */
     margin: 5px; /* Ajusta los márgenes según sea necesario */
     padding: 5px; /* Ajusta el relleno según sea necesario */
+  }
+  .caja input[type="number"] {
+    width: calc(100% - 110px); /* Ancho dinámico para los campos de entrada */
+    margin: 5px; /* Ajusta los márgenes según sea necesario */
+    padding: 5px; /* Ajusta el relleno según sea necesario */
+  }
+
+
+  .caja input[type="number"] {
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
   }

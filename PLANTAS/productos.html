@@ -18,41 +18,43 @@
             <li><a href="index.html">Salir</a></li>
         </ul>
     </nav>
+</header>
 
-    </main>
-    </head>
-    <body>
-    
-        <form onsubmit="event.preventDefault();onSubmit();" autocomplete="off">
-            <div class="tablita">
-              <table class="tabla" id="tabla">
-                <thead>
-                    <br/><br/><br/><br/><br/><br/><br/><br/>
-                  <tr> 
+<main>
+    <form onsubmit="event.preventDefault();onSubmit();" autocomplete="off">
+        <div class="tablita">
+            <h2>Agregar Productos</h2>
+        </div>
+        <br/>
+        <br/>
+        <div class="caja">
+            <label for="nom">Nombre</label> 
+            <input type="text" id="nom" placeholder="Escriba aquí" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" title="Solo se permiten letras y espacios" required>
+            <br/>
+            <label for="cant">Cantidad</label> 
+            <input type="number" id="cant" placeholder="Escriba aquí" pattern="[0-9]+" title="Solo se permiten números enteros positivos" min="0" required>
+            <br/>
+            <label for="pre">Precio</label> 
+            <input type="number" id="pre" placeholder="Escriba aquí" pattern="[0-9]+" title="Solo se permiten números enteros positivos" min="0" required>
+        </div>
+        <br/>
+        <input class="submit" type="submit" value="Agregar">
+        <table class="tabla" id="tabla">
+            <thead>
+                <tr>
                     <th>Nombre</th> 
-                    <th>Apellido</th>
-                    <th>País</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
                     <th>Opciones</th>
-                  </tr>
-                </thead>
-                  <tbody>
+                </tr>
+            </thead>
+            <tbody>
     
-                  </tbody>
-              </table>
-            </div>
-            <br/>
-            <br/>
-            <div class="caja">
-              <label for="nom">Nombre</label> <input type="text" id="nom" placeholder="Escriba aqui" required>
-              <br/>
-              <label for="ape">Apellido</label> <input type="text" id="ape" placeholder="Escriba aqui" required>
-              <br/>
-              <label for="pais">País</label> <input type="text" id="pais" placeholder="Escriba aqui" required>
-            </div>
-            <br/>
-            <input class="submit" type="submit" value="Agregar ">
-            </form>
-    </header>
-</body>
+            </tbody>
+        </table>
+    </form>
+</main>
+
 <script type="text/javascript" src="assets/js/productos.js"></script>
+</body>
 </html>
