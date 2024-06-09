@@ -65,7 +65,7 @@
                     </ul>
                 </div>
 
-                <img src="assets/img/perfil.png" alt="" class="nav__img">
+  
             </nav>
         </header>
         
@@ -110,11 +110,17 @@
                 .then(data => mostrarData(data))
                 .catch(error => console.log(error))
     
-            const mostrarData = (data) => {
-                let body = ""
-                body += `<tr><td>${Math.round(data.main.temp_min - 273.15)}°C</td><td>${Math.round(data.main.temp_max - 273.15)}°C</td>   <td>${data.name}</td></tr>`
-                document.getElementById('data').innerHTML = body;
-            }
+        const mostrarData = (data) => {
+            console.log("Datos recibidos:", data);
+
+            let body = "";
+            const temp_min_celsius = Math.round(data.main.temp_min - 273.15);
+            const temp_max_celsius = Math.round(data.main.temp_max - 273.15);
+            body += `<tr><td>${temp_min_celsius}°C</td>`;
+            body += `<td>${temp_max_celsius}°C</td>`;
+            body += `<td>${data.name}</td></tr>`;
+            document.getElementById('data').innerHTML = body;
+        }
         </script>
         </div>
 
