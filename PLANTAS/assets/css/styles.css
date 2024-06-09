@@ -1135,3 +1135,92 @@ table thead {
       background:rgb(255, 255, 255);
       color:rgb(0, 0, 0);
   }
+
+
+/* Estilos generales para la tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Estilos para las filas */
+tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+tr:nth-child(odd) {
+  background-color: #e9ecef;
+}
+
+/* Estilos para las celdas */
+td, th {
+  padding: 12px 15px;
+  text-align: center;
+}
+
+/* Estilos para las celdas de temperatura */
+.temp {
+  background-color: #f2f2f2;
+}
+
+/* Estilos para las celdas de nombre */
+.name {
+  background-color: #d9ead3;
+}
+
+/* Estilos para el encabezado */
+th {
+  background-color: #024900;
+  color: white;
+}
+
+/* Estilos para el título */
+h1 {
+  text-align: center;
+  margin-top: 50px;
+  color: #343a40;
+  font-size: 24px;
+}
+
+/* Media query para hacer la tabla responsiva */
+@media (max-width: 768px) {
+  table {
+    margin: 10px;
+  }
+  th, td {
+    padding: 10px;
+  }
+}
+
+/* Estilos adicionales para hacer la tabla más hermosa */
+table {
+  border-radius: 8px;
+  overflow: hidden;
+  border-spacing: 0;
+}
+
+/* Estilos para los enlaces dentro de la tabla */
+a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #0056b3;
+}
+
+/* Estilos para el pie de página */
+tfoot {
+  background-color: #f8f9fa;
+  font-style: italic;
+}
+
+/* Efecto de sombra en las celdas al pasar el ratón */
+td:hover, th:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

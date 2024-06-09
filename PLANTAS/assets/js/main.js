@@ -189,7 +189,7 @@ function mostrarTienda() {
                   ${item.titulo}
               </div>
               <div class="precio">
-                  ${numeroMoneda(item.precio)} CLP
+                  ${numeroMoneda(item.precio)} 
               </div>
               <div class="cantidad">
                   ${item.cantidad} Unidades
@@ -353,11 +353,20 @@ function mostrarCarrito() {
 //* con la objeto global Intl.NumberFormat() formateo el numero a moneda
 //* https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Intl
 function numeroMoneda(numero) {
-    return new Intl.NumberFormat("es-US", {
+    const formattedPrice = new Intl.NumberFormat("es-US", {
         maximumSignificantDigits: 2, //* 2 decimales
         style: "currency",
         currency: "CLP",
     }).format(numero);
+
+    // Verificar si "CLP" ya está presente al final del texto
+    if (formattedPrice.endsWith("CLP")) {
+        return formattedPrice;
+    } else {
+        // Eliminar cualquier "CLP" presente al inicio y luego agregarlo al final
+        const priceWithoutCLP = formattedPrice.replace(/^CLP\s*/, ''); // Elimina "CLP" al inicio
+        return priceWithoutCLP + " CLP"; // Agrega "CLP" al final
+    }
 }
 
 
@@ -365,57 +374,5 @@ function numeroMoneda(numero) {
 
 //**** nav ****/
 const nav = document.querySelector(".nav"),
-    searchIcon = document.querySelector("#searchIcon"),
     navOpenBtn = document.querySelector(".navOpenBtn"),
     navCloseBtn = document.querySelector(".navCloseBtn");
-
-searchIcon.addEventListener("click", () => {
-    nav.classList.toggle("openSearch");
-    nav.classList.remove("openNav");
-    if (nav.classList.contains("openSearch")) {
-        return searchIcon.classList.replace("uil-search", "uil-times");
-    }
-    searchIcon.classList.replace("uil-times", "uil-search");
-});
-
-navOpenBtn.addEventListener("click", () => {
-    nav.classList.add("openNav");
-    nav.classList.remove("openSearch");
-    searchIcon.classList.replace("uil-times", "uil-search");
-});
-navCloseBtn.addEventListener("click", () => {
-    nav.classList.remove("openNav");
-});
-
-
-
-
-//**** contacto ****/
-    // Acceder al formulario por su ID
-    var form = document.getElementById('contactForm');
-
-    // Escuchar el evento de envío del formulario
-    form.addEventListener('submit', function(event) {
-        event.preventDefault(); // Evitar el envío del formulario
-
-        // Obtener los valores de los campos
-        var nombre = form.querySelector('[name="nombre"]').value;
-        var email = form.querySelector('[name="email"]').value;
-        var mensaje = form.querySelector('[name="mensaje"]').value;
-
-        // Mostrar los valores en una ventana emergente
-        alert('Nombre: ' + nombre + '\nEmail: ' + email + '\nMensaje: ' + mensaje);
-
-        // Aquí podrías enviar los datos del formulario mediante AJAX, etc.
-
-        // Reiniciar el formulario después de mostrar el mensaje
-        form.reset();
-    });
-
-
-
-
-    
-
-
-
