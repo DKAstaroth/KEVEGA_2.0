@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Vista de Administrador</title>
+    <!-- Enlace al archivo CSS estático -->
+    <link rel="stylesheet" href="{% static 'core/css/admin.css' %}">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h3>Vista Admin</h3>
+        </div>
+        <ul class="nav-links">
+            <!-- Enlaces a otras páginas -->
+            <li><a href="{% url 'usuarios' %}">Usuarios</a></li>
+            <li><a href="{% url 'productos' %}">Productos</a></li>
+            <li><a href="{% url 'index' %}">Salir</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenido específico de cada página -->
+    {% block contenido %}
+
+    {% endblock contenido %}
+
+    <!-- Script JavaScript estático -->
+    <script src="{% static 'core/js/productos.js' %}"></script>
+</body>
+</html>

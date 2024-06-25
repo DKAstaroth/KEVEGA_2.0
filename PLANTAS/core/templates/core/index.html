@@ -1,0 +1,108 @@
+{% extends 'core/base.html' %}
+
+{% block contenido %}
+<br>
+<br>
+
+    <div class="divapi">
+        <div class="container mt-4 shadow-lg p-3 mb-5 bg-body rounded">
+        <br><br><br><br>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>T° minima</th>
+                <th>T° maxima</th>
+                <th>Ciudad</th>
+              </tr>
+            </thead>
+            <tbody id="data">
+            </tbody>
+          </table>
+        </div>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+      
+          <table id="data">
+            <!-- Los datos de la API se mostrarán aquí -->
+        </table>
+    
+        <script>
+            let url = 'https://api.openweathermap.org/data/2.5/weather?q=santiago,cl&APPID=6c5c2afb749bb6cba228b32a97a46408';
+            fetch(url)
+                .then(response => response.json())
+                .then(data => mostrarData(data))
+                .catch(error => console.log(error))
+    
+        const mostrarData = (data) => {
+            console.log("Datos recibidos:", data);
+
+            let body = "";
+            const temp_min_celsius = Math.round(data.main.temp_min - 273.15);
+            const temp_max_celsius = Math.round(data.main.temp_max - 273.15);
+            body += `<tr><td>${temp_min_celsius}°C</td>`;
+            body += `<td>${temp_max_celsius}°C</td>`;
+            body += `<td>${data.name}</td></tr>`;
+            document.getElementById('data').innerHTML = body;
+        }
+        </script>
+        </div>
+
+
+
+        
+<section class="cards">
+     <div class="card js-tilt" data-tilt>
+        <div class="banner">
+            <h2>
+                Babiana
+            </h2>
+        </div>    
+
+            <div class="content">
+                <div class="details">
+                    <h5>Detalles de la Planta</h5>
+                    <small>Color: Violeta y Blanco</small>
+                    <small>Tamaño: Varía</small>
+                    <small>Temporada de Floración: Primavera</small>
+
+                </div>
+            </div>
+     </div>
+        <div class="card js-tilt" data-tilt>
+            <div class="banner">
+                <h2>
+                    Fresia
+                </h2>
+            </div>
+
+            <div class="content">     
+                 <div class="details">
+                    <h5>Detalles de la Planta</h5>
+                    <small>Color: Varios colores, incluyendo blanco, amarillo y rosa</small>
+                    <small>Tamaño: Varía</small>
+                    <small>Temporada de Floración: Primavera y Verano</small>
+    
+                 </div>
+            </div>
+        </div>
+        
+        <div class="card js-tilt" data-tilt>
+            <div class="banner">
+                <h2>
+                    Ixia 
+                </h2>
+            </div>
+            <div class="content">
+                <div class="details">
+                    <h5>Detalles de la Planta</h5>
+                    <small>Color: Varios colores, como rosa, rojo, naranja, amarillo, blanco y púrpura</small>
+                    <small>Tamaño: Pequeño</small>
+                    <small>Temporada de Floración: Primavera y Verano</small>
+
+                </div>
+            </div>
+        </div>
+</section>
+
+
+
+{% endblock contenido %}
