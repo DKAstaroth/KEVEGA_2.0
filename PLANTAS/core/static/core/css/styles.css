@@ -268,6 +268,87 @@ img {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.nav__item {
+  position: relative;
+}
+
+.nav__link {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.nav__link .nav__icon {
+  margin-right: 5px;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #000000;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-menu a {
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+}
+
+.dropdown-menu a.logout-link {
+  color: #333; /* Color del texto para 'Cerrar sesión' */
+}
+
+.dropdown-menu a.logout-link:hover {
+  background-color: #000000;
+  color: #333; /* Color del texto al pasar el mouse */
+}
+
+.dropdown-menu a:hover {
+  background-color: #000000;
+  color: #333; /* Color del texto al pasar el mouse */
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu {
+  right: 0;
+}
+
+.dropdown-menu a.logout-link {
+  color: #000; /* Cambiar el color del texto a negro */
+}
+
+
+
+
+
+
+
+
 .hero {
   background-image: url(https://st4.depositphotos.com/27925096/31616/i/950/depositphotos_316168734-stock-photo-green-leaf-wall-texture-background.jpg);
   padding: 240px 0;

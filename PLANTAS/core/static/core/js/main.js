@@ -376,3 +376,24 @@ function numeroMoneda(numero) {
 const nav = document.querySelector(".nav"),
     navOpenBtn = document.querySelector(".navOpenBtn"),
     navCloseBtn = document.querySelector(".navCloseBtn");
+
+
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const username = document.getElementById('username');
+        const logoutDropdown = document.getElementById('logout-dropdown');
+    
+        username.addEventListener('click', function() {
+            logoutDropdown.classList.toggle('show');
+        });
+    
+        // Cerrar el menú si se hace clic fuera de él
+        document.addEventListener('click', function(event) {
+            const isClickInside = username.contains(event.target);
+            const isLogoutMenu = logoutDropdown.contains(event.target);
+            if (!isClickInside && !isLogoutMenu) {
+                logoutDropdown.classList.remove('show');
+            }
+        });
+    });
