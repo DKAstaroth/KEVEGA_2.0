@@ -25,13 +25,14 @@
         <!--Formulario de Login y registro-->
         <div class="contenedor__login-register">
             <!--Login-->
-            <form action="" class="formulario__login" id="loginForm">
+            <form action="{% url 'login' %}" method="POST" class="formulario__login" id="loginForm">
+                {% csrf_token %}
                 <h2>Iniciar sesión</h2>
                 <input type="text" placeholder="Correo Electrónico" name="email" required title="Falta agregar correo electrónico">
                 <span class="error" id="emailLoginError"></span>
                 <input type="password" placeholder="Contraseña" name="contrasena" required title="Falta agregar contraseña">
                 <span class="error" id="contrasenaLoginError"></span>
-                <button>Iniciar sesión</button>
+                <button type="submit">Iniciar sesión</button>
             </form>
 
             <!--Register-->

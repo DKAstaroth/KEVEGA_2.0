@@ -16,6 +16,9 @@
 
     <!-- Archivos CSS locales -->
     <link rel="stylesheet" href="{% static 'core/css/styles.css' %}">
+    <style>
+        /* Aquí van los estilos que definimos arriba */
+    </style>
 
     <!-- FontAwesome -->
     <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
@@ -63,6 +66,23 @@
                             <span class="nav__name">Admin</span>
                         </a>
                     </li>
+
+                    <!-- Mostrar el nombre del usuario si está autenticado -->
+{% if user.is_authenticated %}
+<div class="nav__item dropdown">
+    <div id="username" class="nav__link dropdown-toggle">
+        <i class='bx bx-user nav__icon'></i>
+        <span class="nav__name">{{ user.username }}</span>
+        <i class='bx bxs-chevron-down'></i>
+    </div>
+<div class="dropdown-menu" id="logout-dropdown">
+    <a href="{% url 'logout' %}" class="dropdown-item logout-link">
+        <i class='bx bx-log-out nav__icon'></i>
+        <span class="nav__name">Cerrar sesión</span>
+    </a>
+</div>
+</div>
+{% endif %}
                 </ul>
             </div>
         </nav>
@@ -70,13 +90,23 @@
 
     <!-- Contenido específico de cada página -->
     {% block contenido %}
-
     {% endblock contenido %}
 
     <!-- Archivo JS local -->
     <script src="{% static 'core/js/main.js' %}"></script>
     <script src="{% static 'core/js/login.js' %}"></script>
     <script src="{% static 'core/js/pago.js' %}"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const username = document.getElementById('username');
+            const logoutDropdown = document.getElementById('logout-dropdown');
+
+            username.addEventListener('click', function() {
+                logoutDropdown.style.display = (logoutDropdown.style.display === 'block' ? 'none' : 'block');
+            });
+        });
+    </script>
 
     <!-- Pie de Página -->
     <footer class="pie-pagina">
