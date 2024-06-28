@@ -1,0 +1,9 @@
+<!-- templates/cart/cart.html -->
+<h1>Shopping Cart</h1>
+<ul>
+  {% for item in cart_items %}
+    <li>{{ item.quantity }} x {{ item.product.name }} - ${{ item.product.price }}</li>
+    <a href="{% url 'cart:remove_from_cart' item.id %}">Remove</a>
+  {% endfor %}
+</ul>
+<p>Total: ${{ total }}</p>

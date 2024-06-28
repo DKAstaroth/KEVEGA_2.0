@@ -20,7 +20,22 @@ from django.urls import path, include
 urlpatterns = [
     path('',include('core.urls')),
     path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
+    path('cart/', include('cart.urls')),
+    # otras URLs de tu proyecto
 ]
 admin.site.site_header= "Administracion de la app"
 admin.site.index_title="app"
 admin.site.site_title="administracion de productos"
+# cart/urls.py
+from django.urls import path
+from . import views
+
+app_name = 'cart'
+
+urlpatterns = [
+    path('add/<int:product_id>/', views.add_to_cart, name='add_to_cart'),
+    path('view/', views.view_cart, name='view_cart'),
+    path('remove/<int:cart_item_id>/', views.remove_from_cart, name='remove_from_cart'),
+]
+

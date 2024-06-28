@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib.auth.decorators import login_required
+from .models import Cart, CartItem, Product
 
 def index(request):
     return render(request, 'core/index.html')
@@ -72,3 +73,26 @@ def registrar_usuario(request):
         return redirect('login')
 
     return render(request, 'core/login.html')
+
+
+
+
+def add_to_cart(request, product_id):
+    product = Product.objects.get(id=product_id)
+    cart = request.user.cart
+    cart_item, created = CartItem.objects.get_or_create(cart=cart, product=product)
+    if not created:
+        cart_item.quantity += 1
+        cart_item.save()
+    return redirect('cart:view_cart')
+
+def view_cart(request):
+    cart = request.user.cart
+    cart_items = cart.cartitem_set.all()
+    total = sum(item.product.price * item.quantity for item in cart_items)
+    return render(request, 'cart/cart.html', {'cart_items': cart_items, 'total': total})
+
+def remove_from_cart(request, cart_item_id):
+    cart_item = CartItem.objects.get(id=cart_item_id)
+    cart_item.delete()
+    return redirect('cart:view_cart')

@@ -1305,3 +1305,11 @@ tfoot {
 td:hover, th:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+
+.container{flex-direction: row , row-reverse , column  , column-reverse ;}
+
+.display-1{
+  background: #1e96fc;
+  color: white;
+}
