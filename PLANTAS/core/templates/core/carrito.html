@@ -1,0 +1,50 @@
+{% extends 'core/base.html' %}
+
+{% block contenido %}
+<section class="hero">
+  <div class="hero-logo">
+    <h1 class="font-style-1" style="color: aliceblue;">Carrito de Compras</h1>
+  </div>
+</section>
+
+<div id="carrito-contenedor">
+  {% if productos_en_carrito %}
+    {% for item in productos_en_carrito %}
+    <div class="item">
+      <div>
+        <img class="imagen" src="{{ item.producto.image.url }}" alt="{{ item.producto.name }}">
+      </div>
+      <div class="titulo">
+        {{ item.producto.name }}
+      </div>
+      <div class="precio">
+        {{ item.producto.price }}
+      </div>
+      <div class="cantidad">
+        <form action="{% url 'actualizar_cantidad_carrito' %}" method="POST" autocomplete="off">
+          {% csrf_token %}
+          <input type="hidden" name="producto_id" value="{{ item.producto.id }}">
+          <input type="number" name="cantidad" value="{{ item.cantidad }}" min="1" max="{{ item.producto.stock }}" required>
+          <button class="actualizar" type="submit">Actualizar</button>
+        </form>
+      </div>
+      <div class="acciones">
+        <form action="{% url 'eliminar_carrito' %}" method="POST" autocomplete="off">
+          {% csrf_token %}
+          <input type="hidden" name="producto_id" value="{{ item.producto.id }}">
+          <button class="eliminar" type="submit">Eliminar</button>
+        </form>
+      </div>
+    </div>
+    {% endfor %}
+    <form action="{% url 'comprar' %}" method="POST" autocomplete="off">
+      {% csrf_token %}
+      <button class="comprar" type="submit">Comprar</button>
+    </form>
+  {% else %}
+    <p>No hay productos en el carrito.</p>
+  {% endif %}
+</div>
+
+<p id="mensajeCompra"></p>
+{% endblock contenido %}

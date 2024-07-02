@@ -1,4 +1,5 @@
 * Reset de estilos */
+* Reset de estilos */
 * {
     margin: 0;
     padding: 0;
@@ -26,6 +27,8 @@ body {
 .sidebar-header {
     
     padding: 20px;
+    padding-bottom: 5px;
+    padding-top: 5px;
     text-align: center;
     border-bottom: 1px solid #555;
 }
@@ -33,6 +36,8 @@ body {
 .nav-links {
     list-style: none;
     padding: 20px;
+    padding-bottom: 5px;
+    padding-top: 5px;
 }
 
 .nav-links li {
@@ -90,8 +95,6 @@ header {
 
 
 }
-
-
 
 
 
@@ -197,8 +200,15 @@ body {
 form{
     text-align: center;
     float: right; /* Para colocar el formulario a la derecha */
-    margin-top: 300px; /* Espacio entre el formulario y los elementos de la barra de navegación */
-    margin-right: 20px; /* Espacio entre el formulario y el borde derecho de la ventana del navegador */
+    margin-top: 1%;
+    margin-bottom: 10%;
+
+}
+/*Arreglo para el formato responsivo */
+@media screen and (max-width: 1060px) {
+    form{
+        margin-top: 35%;
+    }
 }
 .tablita {
     display: block; /* Cambia de inline-block a block */
@@ -215,7 +225,7 @@ table tr th{
     width: 100px;
     height: 25px;
     color: white;
-    background-color: #27ae60;
+    background-color: #333333d6
 }
 
 /* Para el estilo de las nuevas celdas */

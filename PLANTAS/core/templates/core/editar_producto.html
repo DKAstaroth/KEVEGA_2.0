@@ -1,0 +1,14 @@
+{% extends 'core/base2.html' %}
+
+{% block contenido %}
+<main>
+    <div class="tablita">
+        <h2>Editar Producto</h2>
+    </div>
+    <form enctype="multipart/form-data" method="POST" autocomplete="off">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="submit" type="submit">Guardar</button>
+    </form>
+</main>
+{% endblock contenido %}

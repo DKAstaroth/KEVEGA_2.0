@@ -1,5 +1,5 @@
 // Esta función se ejecuta cuando la página se carga
-window.onload = function() {
+/*window.onload = function() {
     let Jacinto = {
         nom: "Jacinto",
         cant: 10,
@@ -115,4 +115,4 @@ function Borrarr(td) {
         document.getElementById("tabla").deleteRow(row.rowIndex);
         Vaciar();
     }
-}
+}*/

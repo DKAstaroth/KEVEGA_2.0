@@ -20,7 +20,9 @@ from django.urls import path, include
 urlpatterns = [
     path('',include('core.urls')),
     path('admin/', admin.site.urls),
+    # otras URLs de tu proyecto
 ]
 admin.site.site_header= "Administracion de la app"
 admin.site.index_title="app"
 admin.site.site_title="administracion de productos"
+

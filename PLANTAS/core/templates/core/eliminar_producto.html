@@ -1,0 +1,15 @@
+{% extends 'core/base2.html' %}
+
+{% block contenido %}
+<main>
+    <div class="tablita">
+        <h2>Eliminar Producto</h2>
+    </div>
+    <p>¿Está seguro que desea eliminar el producto "{{ producto.name }}"?</p>
+    <form method="POST" autocomplete="off">
+        {% csrf_token %}
+        <button type="submit">Eliminar</button>
+        <a href="{% url 'productos' %}">Cancelar</a>
+    </form>
+</main>
+{% endblock contenido %}
