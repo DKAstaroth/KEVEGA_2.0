@@ -174,7 +174,7 @@ const carritoCompra = {
 };
 
 //**** hago un render de los productos ****
-mostrarTienda();
+//mostrarTienda();
 //**** inicio mostrarTienda ****/
 function mostrarTienda() {
     const html = db.items.map((item) => {
@@ -226,7 +226,7 @@ function mostrarTienda() {
 
 //* Agregar un evento 'DOMContentLoaded' para llamar a mostrarTienda
 document.addEventListener('DOMContentLoaded', function() {
-    mostrarTienda();
+    //mostrarTienda();
 });
 
 //**** Inicio mostrarCarrito ****//

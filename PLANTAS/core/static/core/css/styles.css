@@ -203,7 +203,7 @@ img {
 @media screen and (min-width: 576px) {
   .nav__list {
     justify-content: center;
-    column-gap: 3rem;
+    column-gap: 1.5rem;
   }
 }
 
@@ -377,9 +377,8 @@ img {
 
 #tienda-contenedor {
   padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  grid-gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 #tienda-contenedor .item {
@@ -387,13 +386,15 @@ img {
   border: solid 1px #ccc;
   padding: 20px;
   border-radius: 5px;
+  width: 256px;
+  margin: 0px 12px;
   box-shadow: #4e4a47 2px 3px 5px;
 }
 
 .imagen {
+  height: 100%;
   width: 100%;
-  /* height: 200px; */
-  object-fit: cover;
+  object-fit: contain;
   aspect-ratio: 1/1;
   background-size: auto 100%;
   background-position: center;
@@ -520,6 +521,8 @@ div div button i {
 .pie-pagina{
   width: 100%;
   background-color: #011101;
+  bottom: 0;
+
 }
 .pie-pagina .grupo-1{
   width: 100%;
@@ -1188,9 +1191,11 @@ main{
 }
 
 @media screen and (min-width: 600px) {
+  /*
   .container {
-    width: 70%; /* Cambiado el ancho para pantallas más grandes */
+    width: 70%;
   }
+  */
 }
 
 
@@ -1304,4 +1309,130 @@ tfoot {
 /* Efecto de sombra en las celdas al pasar el ratón */
 td:hover, th:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.hero {
+  background-color: #4CAF50;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.hero-logo h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+/* Catalog and Cart Container */
+#tienda-contenedor, #carrito-contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.item {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 20px;
+  width: calc(25% - 40px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.item img.imagen {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.item .titulo {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.item .precio {
+  color: #4CAF50;
+  font-size: 1.5em;
+  margin: 10px 0;
+}
+
+.item .cantidad {
+  font-size: 1em;
+  margin: 10px 0;
+}
+
+.item .acciones {
+  margin-top: 10px;
+}
+
+.item .acciones form {
+  display: flex;
+  flex-direction: column;
+}
+
+.item .acciones button.agregar, .item .acciones button.eliminar {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+}
+
+/* Styles for the purchase button */
+.item .acciones button.comprar {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.item .acciones button.comprar:hover {
+  background-color: #45a049;
+}
+
+/* Styles for the update quantity button */
+.item .cantidad form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.item .cantidad input[type="number"] {
+  width: 50px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.item .cantidad button.actualizar {
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  margin-left: 10px;
+  transition: background-color 0.3s;
+}
+
+.item .cantidad button.actualizar:hover {
+  background-color: #1976D2;
 }

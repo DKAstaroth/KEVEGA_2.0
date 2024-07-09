@@ -53,36 +53,50 @@
                         </a>
                     </li>
 
+                    {% if not user.is_authenticated %}
                     <li class="nav__item">
                         <a href="{% url 'login' %}" class="nav__link">
                             <i class='bx bx-log-in nav__icon'></i>
                             <span class="nav__name">Login</span>
                         </a>
                     </li>
+                    {% endif %}
 
+                    {% if user.is_authenticated and user.is_staff %}
                     <li class="nav__item">
-                        <a href="{% url 'adminn' %}" class="nav__link">
+                        <a href="{% url 'productos' %}" class="nav__link">
                             <i class='bx bx-user-circle nav__icon'></i>
                             <span class="nav__name">Admin</span>
                         </a>
                     </li>
+                    {% endif %}
 
                     <!-- Mostrar el nombre del usuario si está autenticado -->
-{% if user.is_authenticated %}
-<div class="nav__item dropdown">
-    <div id="username" class="nav__link dropdown-toggle">
-        <i class='bx bx-user nav__icon'></i>
-        <span class="nav__name">{{ user.username }}</span>
-        <i class='bx bxs-chevron-down'></i>
-    </div>
-<div class="dropdown-menu" id="logout-dropdown">
-    <a href="{% url 'logout' %}" class="dropdown-item logout-link">
-        <i class='bx bx-log-out nav__icon'></i>
-        <span class="nav__name">Cerrar sesión</span>
-    </a>
-</div>
-</div>
-{% endif %}
+                {% if user.is_authenticated %}
+                <div class="nav__item dropdown">
+                    <div id="username" class="nav__link dropdown-toggle">
+                        <i class='bx bx-user nav__icon'></i>
+                        <span class="nav__name">{{ user.username }}</span>
+                        <i class='bx bxs-chevron-down'></i>
+                    </div>
+                <div class="dropdown-menu" id="logout-dropdown">
+                    <a href="{% url 'logout' %}" class="dropdown-item logout-link">
+                        <i class='bx bx-log-out nav__icon'></i>
+                        <span class="nav__name">Cerrar sesión</span>
+                    </a>
+                </div>
+            
+                </div>
+                {% endif %}
+                <li class="nav__item">
+                    <a href="{% url 'historial' %}" style="color: whitesmoke;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M4 5h16V3H4zm16 4H4V7h16zM3 11h7v2h4v-2h7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1zm13 2v2H8v-2H5v6h14v-6z"/></svg>                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="{% url 'carrito' %}" style="color: whitesmoke;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M4.004 6.417L.762 3.174L2.176 1.76l3.243 3.243H20.66a1 1 0 0 1 .958 1.287l-2.4 8a1 1 0 0 1-.958.713H6.004v2h11v2h-12a1 1 0 0 1-1-1zm1.5 16.586a1.5 1.5 0 1 1 0-3a1.5 1.5 0 0 1 0 3m12 0a1.5 1.5 0 1 1 0-3a1.5 1.5 0 0 1 0 3"/></svg>
+                    </a>
+                </li>
                 </ul>
             </div>
         </nav>

@@ -1,9 +1,12 @@
 {% extends 'core/base2.html' %}
+{% load static %}
 
 {% block contenido %}   
 
 <main>
-    <form onsubmit="event.preventDefault();onSubmit();" autocomplete="off">
+    
+    <form enctype="multipart/form-data" method="POST" autocomplete="off">
+        {% csrf_token %}
         <div class="tablita">
             <h2>Agregar Productos</h2>
         </div>
@@ -11,29 +14,61 @@
         <br/>
         <div class="caja">
             <label for="nom">Nombre</label> 
-            <input type="text" id="nom" placeholder="Escriba aquí" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" title="Solo se permiten letras y espacios" required>
+            <input name="nom" type="text" id="nom" placeholder="Escriba aquí" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" title="Solo se permiten letras y espacios" required>
             <br/>
-            <label for="cant">Cantidad</label> 
-            <input type="number" id="cant" placeholder="Escriba aquí" pattern="[0-9]+" title="Solo se permiten números enteros positivos" min="0" required>
+            <label for="desc">Descripcion</label> 
+            <input name="desc" type="text" id="desc" placeholder="Escriba aquí" pattern="[0-9a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" title="" required>
             <br/>
             <label for="pre">Precio</label> 
-            <input type="number" id="pre" placeholder="Escriba aquí" pattern="[0-9]+" title="Solo se permiten números enteros positivos" min="0" required>
+            <input name="pre" type="number" id="pre" placeholder="Escriba aquí" pattern="[0-9]+" title="Solo se permiten números enteros positivos" min="0" required>
+            <br/>
+            <label for="stock">Stock</label> 
+            <input name="stock" type="number" id="stock" placeholder="Escriba aquí" pattern="[0-9]+" title="Solo se permiten números enteros positivos" min="0" required>
+            <br/>
+            <label for="img">Imagen</label> 
+            <input name="img" type="file" id="img" accept=".png, .jpg, .jpeg" required>
         </div>
         <br/>
-        <input class="submit" type="submit" value="Agregar">
+        <button class="submit" type="submit">Agregar
+        </button>
         <table class="tabla" id="tabla">
             <thead>
-                <tr>
-                    <th>Nombre</th> 
-                    <th>Cantidad</th>
-                    <th>Precio</th>
-                    <th>Opciones</th>
-                </tr>
+              <tr>
+                <th>Img</th>
+                <th>Nombre</th> 
+                <th>Descripcion</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Acciones</th>
+              </tr>
             </thead>
             <tbody>
-    
+              {% for producto in xd %}
+                <tr>
+                    <td><img src="{% static 'products/' %}{{ producto.image }}"></td>
+                    <td>{{ producto.name }}</td>
+                    <td>{{ producto.description }}</td>
+                    <td>{{ producto.price }}</td>
+                    <td>{{ producto.stock }}</td>
+                    <td>
+                      {% if producto.pk %}
+                        <a href="{% url 'editar_producto' producto.pk %}">Editar</a>
+                        <a href="{% url 'eliminar_producto' producto.pk %}">Eliminar</a>
+                        <!--
+                        <form name="eliminar" id="eliminar" action="{% url 'eliminar_producto' producto.pk %}" method="POST" style="display:inline;">
+                            {% csrf_token %}
+                            <button name="eliminar" id="eliminar" type="submit">Eliminar</button>
+                        </form>
+                        -->
+                      {% else %}
+                          <span>No válido</span>
+                      {% endif %}
+                    </td>
+                </tr>
+              {% endfor %}
             </tbody>
-        </table>
+          </table>
     </form>
+
 </main>
 {% endblock contenido %}

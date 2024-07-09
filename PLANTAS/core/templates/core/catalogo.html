@@ -1,22 +1,42 @@
 {% extends 'core/base.html' %}
 
 {% block contenido %}
+<section class="hero">
+  <div class="hero-logo">
+    <h1 class="font-style-1" style="color: aliceblue;">Catalogo</h1>
+  </div>
+</section>
 
+<div id="menu">
+  <div id="carrito-compra-contenedor" class="ocultar"></div>
+</div>
 
-    <section class="hero">
-
-      <div class="hero-logo">
-        <h1 class="font-style-1" style="color: aliceblue;">Catalogo</h1>
-    
-    </section>
-
-      <div id="menu">
-        <div id="carrito-compra-contenedor" class="ocultar"></div>
-      </div>
-
-      <div id="tienda-contenedor"></div>
-      <p id="mensajeCompra"></p>
-      
+<div id="tienda-contenedor">
+  {% for producto in productos %}
+  <div class="item">
+    <div>
+      <img class="imagen" src="{{ producto.image.url }}" alt="{{ producto.name }}">
     </div>
+    <div class="titulo">
+      {{ producto.name }}
+    </div>
+    <div class="precio">
+      {{ producto.price }}
+    </div>
+    <div class="cantidad">
+      {{ producto.stock }} Unidades
+    </div>
+    <div class="acciones">
+      <form action="{% url 'agregar_carrito' %}" method="POST" autocomplete="off">
+        {% csrf_token %}
+        <input type="hidden" name="producto_id" value="{{ producto.id }}">
+        <input style="display: none;" type="number" name="cantidad" value="1" min="1" max="{{ producto.stock }}" required>
+        <button class="agregar" type="submit">Agregar al carrito</button>
+      </form>
+    </div>
+  </div>
+  {% endfor %}
+</div>
 
+<p id="mensajeCompra"></p>
 {% endblock contenido %}
