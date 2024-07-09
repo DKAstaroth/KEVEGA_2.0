@@ -48,8 +48,8 @@
                     <td>
                       {% if usuario.pk %}
 
-                        <a href="{% url 'editar_usuario' usuario.pk %}">Editar</a>
-                        <a href="{% url 'eliminar_usuario' usuario.pk %}">Eliminar</a>
+                        <a href="{% url 'editar_usuario' usuario.pk %}" class="btn btn-editar">Editar</a>
+                        <a href="{% url 'eliminar_usuario' usuario.pk %}" class="btn btn-eliminar">Eliminar</a>
                         
                       {% else %}
                           <span>No válido</span>

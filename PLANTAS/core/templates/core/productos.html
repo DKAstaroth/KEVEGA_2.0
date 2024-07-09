@@ -52,16 +52,10 @@
                     <td>{{ producto.stock }}</td>
                     <td>
                       {% if producto.pk %}
-                        <a href="{% url 'editar_producto' producto.pk %}">Editar</a>
-                        <a href="{% url 'eliminar_producto' producto.pk %}">Eliminar</a>
-                        <!--
-                        <form name="eliminar" id="eliminar" action="{% url 'eliminar_producto' producto.pk %}" method="POST" style="display:inline;">
-                            {% csrf_token %}
-                            <button name="eliminar" id="eliminar" type="submit">Eliminar</button>
-                        </form>
-                        -->
+                        <a href="{% url 'editar_producto' producto.pk %}" class="btn btn-editar">Editar</a>
+                        <a href="{% url 'eliminar_producto' producto.pk %}" class="btn btn-eliminar">Eliminar</a>
                       {% else %}
-                          <span>No válido</span>
+                        <span>No válido</span>
                       {% endif %}
                     </td>
                 </tr>
