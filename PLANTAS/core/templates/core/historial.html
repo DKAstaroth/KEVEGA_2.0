@@ -1,0 +1,37 @@
+{% extends 'core/base.html' %}
+
+{% block contenido %}
+<main>
+    <h1>Historial de Compras de {{ usuario.username }}</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Número de Orden</th>
+                <th>Fecha de Orden</th>
+                <th>Total</th>
+                <th>Detalles</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for compra in ventas %}
+                <tr>
+                    <td>{{ compra.venta.id }}</td>
+                    <td>{{ compra.venta.ordered_date }}</td>
+                    <td>${{ compra.venta.total_price }}</td>
+                    <td>
+                        <ul>
+                            {% for detalle in compra.detalles %}
+                                <li>{{ detalle }}</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                    <td>{{ compra.venta.estado }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</main>
+
+{% endblock contenido %}

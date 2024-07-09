@@ -192,8 +192,13 @@ body {
         width: 100%;
     }
 }
+.arreglo{
+    text-align: center;
+    float: right; /* Para colocar el formulario a la derecha */
+    margin-top: 1%;
+    margin-bottom: 10%;
 
-
+}
 
 
 /*End Footer*/
@@ -204,10 +209,16 @@ form{
     margin-bottom: 10%;
 
 }
+
+
+
 /*Arreglo para el formato responsivo */
 @media screen and (max-width: 1060px) {
     form{
-        margin-top: 35%;
+        margin-top: 45%;
+    }
+    .arreglo{
+        margin-top: 45%;
     }
 }
 .tablita {
@@ -215,6 +226,7 @@ form{
     margin: 0 auto; /* Centra la tabla horizontalmente */
     width: 80%; /* Puedes ajustar el ancho según tus necesidades */
 }
+
 /*Tablaaaaaa Estilos*/
 .tabla{
 border-collapse: collapse; /*Esta propiedad hace que parezca mas una tabla*/

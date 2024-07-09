@@ -203,7 +203,7 @@ img {
 @media screen and (min-width: 576px) {
   .nav__list {
     justify-content: center;
-    column-gap: 3rem;
+    column-gap: 1.5rem;
   }
 }
 
@@ -521,6 +521,8 @@ div div button i {
 .pie-pagina{
   width: 100%;
   background-color: #011101;
+  bottom: 0;
+
 }
 .pie-pagina .grupo-1{
   width: 100%;

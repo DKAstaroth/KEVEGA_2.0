@@ -1,0 +1,54 @@
+{% extends 'core/base2.html' %}
+
+{% block contenido %}   
+
+<main>
+    <div class = "arreglo">
+        <h1>Administrar Pedidos</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nro Orden</th>
+                    <th>Fecha Orden</th>
+                    <th>Usuario</th>
+                    <th>Total</th>
+                    <th>Estado</th>
+                    <th>Detalles</th>
+                    <th>Actualizar Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for compra in ventas %}
+                    <tr>
+                        <td>{{ compra.venta.id }}</td>
+                        <td>{{ compra.venta.ordered_date }}</td>
+                        <td>{{ compra.venta.user.email }}</td>
+                        <td>${{ compra.venta.total_price }}</td>
+                        <td>{{ compra.venta.estado }}</td>
+                        <td>
+                            <ul>
+                                {% for detalle in compra.detalles %}
+                                    <li>{{ detalle }}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                        <td>
+                            <form method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="venta_id" value="{{ compra.venta.id }}">
+                                <select name="nuevo_estado">
+                                    <option value="Procesando">Procesando</option>
+                                    <option value="Enviado">Enviado</option>
+                                    <option value="Completado">Completado</option>                                    
+                                </select>
+                                <button type="submit">Actualizar</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</main>
+{% endblock contenido %}
