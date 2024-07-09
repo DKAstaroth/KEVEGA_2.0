@@ -172,7 +172,7 @@ def comprar(request):
 
     venta.save()
     messages.success(request, 'Compra realizada con éxito')
-    return redirect('catalogo')
+    return redirect('historial')
 
 @login_required(login_url='/login')
 @require_POST
