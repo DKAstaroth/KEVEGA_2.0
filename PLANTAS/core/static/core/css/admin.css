@@ -336,8 +336,32 @@ td {
     border: none;
 }
 
+.btn-editar-colap {
+    background-color: #5175ac; /* Verde */
+    color: white;
+    border: none;
+    display: auto;
+    display: inline-block;
+    padding: 8px 1%;
+    margin: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+    width: 100px; /* Fija el ancho de los botones */
+}
+
 .btn-editar:hover {
     background-color: #45a049;
+}
+
+.btn-actulizar{
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    border: none;
+    margin-top: 10%;
 }
 
 /* Estilo específico para el botón Eliminar */

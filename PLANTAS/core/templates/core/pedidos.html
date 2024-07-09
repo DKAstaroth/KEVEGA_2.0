@@ -37,12 +37,12 @@
                             <form method="post">
                                 {% csrf_token %}
                                 <input type="hidden" name="venta_id" value="{{ compra.venta.id }}">
-                                <select name="nuevo_estado">
-                                    <option value="Procesando">Procesando</option>
+                                <select name="nuevo_estado" class="btn-editar-colap">
+                                    <option value="Procesando">Procesando </option>
                                     <option value="Enviado">Enviado</option>
                                     <option value="Completado">Completado</option>                                    
                                 </select>
-                                <button type="submit">Actualizar</button>
+                                <button class="btn btn-actulizar" type="submit">Actualizar</button>
                             </form>
                         </td>
                     </tr>
